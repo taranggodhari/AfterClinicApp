@@ -1,0 +1,9 @@
+{
+  "name": "after-clinic",
+  "version": "0.0.0",
+  "description": "AfterClinic",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}

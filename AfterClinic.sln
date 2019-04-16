@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "AfterClinic", "AfterClinic\AfterClinic.njsproj", "{EDD8B511-33BC-440C-9B0B-234936EF6398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDD8B511-33BC-440C-9B0B-234936EF6398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD8B511-33BC-440C-9B0B-234936EF6398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD8B511-33BC-440C-9B0B-234936EF6398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD8B511-33BC-440C-9B0B-234936EF6398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21B81417-B586-4236-8D93-FED1C6FAA99C}
+	EndGlobalSection
+EndGlobal
