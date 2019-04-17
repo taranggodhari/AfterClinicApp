@@ -1,4 +1,4 @@
-﻿
+﻿<!-----------------------Nav Bar-------------------------->
 <div *ngIf="user">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" [routerLink]="['/']">
@@ -15,17 +15,21 @@
 					<a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" [routerLink]="['/courses']">List Courses</a>
+					<a class="nav-link" [routerLink]="['/courses']">
+						List Patients
+					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" [routerLink]="['/courses/create']">Create Course</a>
+					<a class="nav-link" [routerLink]="['/courses/create']">
+						Add Vital Signs
+					</a>
 				</li>
 			</ul>
 		</div>
 		<div class="form-inline my-2 my-lg-0">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="btn btn-outline-white disabled" style="color:#fff;">Hello, {{user.firstName}}</a>
+					<a class="btn btn-outline-white disabled" style="color:#fff;">Hello, {{user.fullName}}</a>
 				</li>
 				<li class="nav-item">
 					<a class="btn btn-outline-white" href="/api/auth/signout"><b>Logout</b></a>
@@ -34,17 +38,18 @@
 		</div>
 	</nav>
 </div>
+<!-----------------------Replacable Container-------------------------->
 <div class="container">
 	<div class="jumbotron">
 		<div *ngIf="user">
-			<h1 class="display-3">Welcome {{user.firstName}}</h1>
+			<h1 class="display-3">Welcome {{user.fullName}}</h1>
 			<hr class="my-4">
 			<p>
 				<a class="btn btn-primary btn-lg" [routerLink]="['/courses/create']">
-					Create New Course
+					List Patients
 				</a>
 				<a class="btn btn-primary btn-lg" [routerLink]="['/courses']">
-					List all Courses
+					Add Vital Signs
 				</a>
 			</p>
 			<!--<a href="/api/auth/signout"><b style="color:#222; font-size:large; font-family: monospace;">Logout</b></a>-->
