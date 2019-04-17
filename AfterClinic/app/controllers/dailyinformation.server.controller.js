@@ -77,7 +77,7 @@ exports.delete = function (req, res) {
 	});
 };
 //The hasAuthorization() middleware uses the req.dailyinformation and req.user objects
-//to verify that the current user is the creator of the current dailyinformation
+//to verify that the current user is the patient of the current dailyinformation
 exports.hasAuthorization = function (req, res, next) {
 	if (req.dailyinformation.patient.id !== req.user.id && req.dailyinformation.patient.role !== "PATIENT") {
 		return res.status(403).send({

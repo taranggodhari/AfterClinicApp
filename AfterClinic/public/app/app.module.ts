@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { HomeModule } from './home/home.module';
+import { VitalSignsModule } from './vitalsigns/vitalsigns.modules';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationModule } from './authentication/authentication.module';
 @NgModule({
@@ -13,6 +14,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
         HttpModule,
         AuthenticationModule,
 		HomeModule,
+		VitalSignsModule,
         RouterModule.forRoot(AppRoutes),
     ],
     declarations: [

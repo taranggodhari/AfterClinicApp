@@ -12,16 +12,30 @@
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" [routerLink]="['/']">
+					<ng-container *ngIf="user.role == 'NURSE'">Nurse</ng-container> <ng-container *ngIf="user.role == 'PATIENT'">Patient</ng-container>
+					Home 
+					<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" [routerLink]="['/courses']">
+
+				<li class="nav-item" *ngIf="user.role == 'NURSE'">
+					<a class="nav-link" [routerLink]="['/patients']">
 						List Patients
 					</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" [routerLink]="['/courses/create']">
+				<li class="nav-item" *ngIf="user.role == 'NURSE'">
+					<a class="nav-link" [routerLink]="['/vitalsigns/create']">
 						Add Vital Signs
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
+					<a class="nav-link" [routerLink]="['/dailyinformation']">
+						Enter Daily Info
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
+					<a class="nav-link" [routerLink]="['/dailytips/list']">
+						Daily Motivations
 					</a>
 				</li>
 			</ul>
@@ -38,22 +52,30 @@
 		</div>
 	</nav>
 </div>
-<!-----------------------Replacable Container-------------------------->
+<!----------------------- Container-------------------------->
 <div class="container">
 	<div class="jumbotron">
 		<div *ngIf="user">
 			<h1 class="display-3">Welcome {{user.fullName}}</h1>
 			<hr class="my-4">
-			<p>
-				<a class="btn btn-primary btn-lg" [routerLink]="['/courses/create']">
+			<p *ngIf="user.role == 'NURSE'">
+
+				<a class="btn btn-primary btn-lg" [routerLink]="['/patients']">
 					List Patients
 				</a>
-				<a class="btn btn-primary btn-lg" [routerLink]="['/courses']">
-					Add Vital Signs
+				<a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns/create']">
+					Add Vital Sign
 				</a>
 			</p>
-			<!--<a href="/api/auth/signout"><b style="color:#222; font-size:large; font-family: monospace;">Logout</b></a>-->
+			<p *ngIf="user.role == 'PATIENT'">
 
+				<a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformation']">
+					Enter Daily Info
+				</a>
+				<a class="btn btn-primary btn-lg" [routerLink]="['/dailytips/list']">
+					Daily Motivations
+				</a>
+			</p>
 		</div>
 		<div *ngIf="!user">
 			<div>

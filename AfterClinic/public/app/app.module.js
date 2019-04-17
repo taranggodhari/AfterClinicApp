@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/router", "@angular/http", "./app.component", "./app.routes", "./home/home.module", "./authentication/authentication.service", "./authentication/authentication.module"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/router", "@angular/http", "./app.component", "./app.routes", "./home/home.module", "./vitalsigns/vitalsigns.modules", "./authentication/authentication.service", "./authentication/authentication.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6,7 +6,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/router"
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, AppModule;
+    var core_1, platform_browser_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, vitalsigns_modules_1, authentication_service_1, authentication_module_1, AppModule;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -31,6 +31,9 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/router"
             function (home_module_1_1) {
                 home_module_1 = home_module_1_1;
             },
+            function (vitalsigns_modules_1_1) {
+                vitalsigns_modules_1 = vitalsigns_modules_1_1;
+            },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
             },
@@ -49,6 +52,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/router"
                             http_1.HttpModule,
                             authentication_module_1.AuthenticationModule,
                             home_module_1.HomeModule,
+                            vitalsigns_modules_1.VitalSignsModule,
                             router_1.RouterModule.forRoot(app_routes_1.AppRoutes),
                         ],
                         declarations: [
