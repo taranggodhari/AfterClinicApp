@@ -1,0 +1,202 @@
+.container-fluid {
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*Navigation App Icon*/
+.nav-icon {
+	max-width: 200px;
+}
+
+.img-main {
+	max-width: 200px;
+}
+
+.img-mini {
+	max-width: 200px;
+}
+/*Jumbotron*/
+.jumbotron {
+	border-radius: 0px !important;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(https://static.pexels.com/photos/24324/pexels-photo.jpg);
+	position: relative;
+	height: 100%;
+}
+
+	.jumbotron .btn {
+		border-radius: 0px !important;
+		box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+		padding: 10px 40px;
+	}
+
+.jumbotron-auth {
+	border-radius: 0px !important;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(https://static.pexels.com/photos/24324/pexels-photo.jpg);
+	position: relative;
+	height: 100%;
+	padding: 1rem 1rem;
+	margin-bottom: 2rem;
+	background-color: #fafafa;
+	border-radius: 0.3rem;
+}
+	.jumbotron-auth .btn {
+		border-radius: 0px !important;
+		box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+		padding: 5px 40px;
+	}
+
+@media (min-width: 576px) {
+	.jumbotron-auth {
+		padding: 1rem 1rem;
+	}
+}
+
+
+/* Custom Buttons */
+
+*:focus {
+	outline: none;
+}
+
+#icon {
+	max-width: 100px;
+}
+
+.btn-linkedin {
+	color: #fff !important;
+	background-color: #007bb6;
+	border-color: rgba(0,0,0,0.2)
+}
+
+	.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active, .btn-linkedin.active, .open .dropdown-toggle.btn-linkedin {
+		color: #fff !important;
+		background-color: #005f8d;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+	.btn-linkedin:active, .btn-linkedin.active, .open .dropdown-toggle.btn-linkedin {
+		background-image: none
+	}
+
+	.btn-linkedin.disabled, .btn-linkedin[disabled], fieldset[disabled] .btn-linkedin, .btn-linkedin.disabled:hover, .btn-linkedin[disabled]:hover, fieldset[disabled] .btn-linkedin:hover, .btn-linkedin.disabled:focus, .btn-linkedin[disabled]:focus, fieldset[disabled] .btn-linkedin:focus, .btn-linkedin.disabled:active, .btn-linkedin[disabled]:active, fieldset[disabled] .btn-linkedin:active, .btn-linkedin.disabled.active, .btn-linkedin[disabled].active, fieldset[disabled] .btn-linkedin.active {
+		background-color: #007bb6;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+.btn-pinterest {
+	color: #fff !important;
+	background-color: #cb2027;
+	border-color: rgba(0,0,0,0.2)
+}
+
+	.btn-pinterest:hover, .btn-pinterest:focus, .btn-pinterest:active, .btn-pinterest.active, .open .dropdown-toggle.btn-pinterest {
+		color: #fff !important;
+		background-color: #a81a20;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+	.btn-pinterest:active, .btn-pinterest.active, .open .dropdown-toggle.btn-pinterest {
+		background-image: none
+	}
+
+	.btn-pinterest.disabled, .btn-pinterest[disabled], fieldset[disabled] .btn-pinterest, .btn-pinterest.disabled:hover, .btn-pinterest[disabled]:hover, fieldset[disabled] .btn-pinterest:hover, .btn-pinterest.disabled:focus, .btn-pinterest[disabled]:focus, fieldset[disabled] .btn-pinterest:focus, .btn-pinterest.disabled:active, .btn-pinterest[disabled]:active, fieldset[disabled] .btn-pinterest:active, .btn-pinterest.disabled.active, .btn-pinterest[disabled].active, fieldset[disabled] .btn-pinterest.active {
+		background-color: #cb2027;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+.btn-delete {
+	color: #fff !important;
+	background-color: #cb2027 !important;
+	padding: 0px 30px !important;
+	margin: 0px !important;
+	box-shadow: 0 0px 16px 0 rgba(233, 95, 97, 0.4) !important;
+	border-color: rgba(0,0,0,0.2);
+}
+
+	.btn-delete:hover, .btn-delete:focus, .btn-delete:active, .btn-delete.active, .open .dropdown-toggle.btn-delete {
+		color: #fff !important;
+		background-color: #a81a20 !important;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+	.btn-delete:active, .btn-delete.active, .open .dropdown-toggle.btn-delete {
+		background-image: none
+	}
+
+	.btn-delete.disabled, .btn-delete[disabled], fieldset[disabled] .btn-delete, .btn-delete.disabled:hover, .btn-delete[disabled]:hover, fieldset[disabled] .btn-delete:hover, .btn-delete.disabled:focus, .btn-delete[disabled]:focus, fieldset[disabled] .btn-delete:focus, .btn-delete.disabled:active, .btn-delete[disabled]:active, fieldset[disabled] .btn-delete:active, .btn-delete.disabled.active, .btn-delete[disabled].active, fieldset[disabled] .btn-delete.active {
+		background-color: #cb2027 !important;
+		border-color: rgba(0,0,0,0.2)
+	}
+
+.btn-outline-white {
+	color: #158CBA;
+	background-color: #fff;
+	border-color: #127ba3;
+}
+
+	.btn-outline-white:hover {
+		color: #fff;
+		background-color: #127ba3;
+		border-color: #158CBA;
+	}
+
+	.btn-outline-white:focus, .btn-outline-white.focus {
+		-webkit-box-shadow: 0 0 0 0.2rem rgba(21, 140, 186, 0.5);
+		box-shadow: 0 0 0 0.2rem rgba(21, 140, 186, 0.5);
+	}
+
+	.btn-outline-white.disabled, .btn-outline-white:disabled {
+		color: #158CBA;
+		background-color: transparent;
+	}
+
+	.btn-outline-white:not(:disabled):not(.disabled):active, .btn-outline-white:not(:disabled):not(.disabled).active,
+	.show > .btn-outline-white.dropdown-toggle {
+		color: #fff;
+		background-color: #158CBA;
+		border-color: #158CBA;
+	}
+
+		.btn-outline-white:not(:disabled):not(.disabled):active:focus, .btn-outline-white:not(:disabled):not(.disabled).active:focus,
+		.show > .btn-outline-white.dropdown-toggle:focus {
+			-webkit-box-shadow: 0 0 0 0.2rem rgba(21, 140, 186, 0.5);
+			box-shadow: 0 0 0 0.2rem rgba(21, 140, 186, 0.5);
+		}
+
+.kpx_loginOr {
+	position: relative;
+	font-size: 1.5em;
+	color: #aaa;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+	.kpx_loginOr .kpx_hrOr {
+		background-color: #cdcdcd;
+		height: 1px;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+
+	.kpx_loginOr .kpx_spanOr {
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: -0.6em;
+		margin-left: -1.5em;
+		background-color: white;
+		width: 3em;
+		text-align: center;
+	}

@@ -64,7 +64,13 @@
     <Compile Include="server.js" />
     <Content Include="app\views\index.ejs" />
     <Content Include="package.json" />
+    <Content Include="public\app\app.template.html" />
+    <Content Include="public\app\authentication\authentication.template.html" />
+    <Content Include="public\app\authentication\signin\signin.template.html" />
+    <Content Include="public\app\authentication\signup\signup.template.html" />
+    <Content Include="public\app\home\home.template.html" />
     <Content Include="public\css\bootstrap-lumen.css" />
+    <Content Include="public\css\style.css" />
     <Content Include="public\icons\fontawesome.css" />
     <Content Include="public\images\after-clinic-icon.png" />
     <Content Include="public\images\after-clinic-logo.png" />
@@ -87,6 +93,11 @@
     <Folder Include="config\env\" />
     <Folder Include="config\strategies\" />
     <Folder Include="public\" />
+    <Folder Include="public\app\" />
+    <Folder Include="public\app\authentication\" />
+    <Folder Include="public\app\authentication\signin\" />
+    <Folder Include="public\app\authentication\signup\" />
+    <Folder Include="public\app\home\" />
     <Folder Include="public\css\" />
     <Folder Include="public\icons\" />
     <Folder Include="public\images\" />
@@ -98,6 +109,19 @@
     <Folder Include="typings\globals\socket.io-client\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="public\app\app.component.ts" />
+    <TypeScriptCompile Include="public\app\app.module.ts" />
+    <TypeScriptCompile Include="public\app\app.routes.ts" />
+    <TypeScriptCompile Include="public\app\authentication\authentication.component.ts" />
+    <TypeScriptCompile Include="public\app\authentication\authentication.module.ts" />
+    <TypeScriptCompile Include="public\app\authentication\authentication.routes.ts" />
+    <TypeScriptCompile Include="public\app\authentication\authentication.service.ts" />
+    <TypeScriptCompile Include="public\app\authentication\signin\signin.component.ts" />
+    <TypeScriptCompile Include="public\app\authentication\signup\signup.component.ts" />
+    <TypeScriptCompile Include="public\app\bootstrap.ts" />
+    <TypeScriptCompile Include="public\app\home\home.component.ts" />
+    <TypeScriptCompile Include="public\app\home\home.module.ts" />
+    <TypeScriptCompile Include="public\app\home\home.routes.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
