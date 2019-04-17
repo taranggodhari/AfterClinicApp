@@ -70,7 +70,6 @@
     <Content Include="public\images\after-clinic-logo.png" />
     <Content Include="public\images\after-clinic-name.png" />
     <Content Include="public\favicon.ico" />
-    <Content Include="README.md" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="typings\globals\core-js\typings.json" />
