@@ -37,6 +37,8 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service", ".
                 }
                 CreateComponent.prototype.create = function () {
                     var _this = this;
+                    this.vitalsign.nurse = this.user;
+                    console.log(this.vitalsign);
                     this._vitalSignsService
                         .create(this.vitalsign)
                         .subscribe(function (createdVitalSign) { return _this._router.navigate(["/vitalsigns", createdVitalSign._id]); }, function (error) { return (_this.errorMessage = error); });

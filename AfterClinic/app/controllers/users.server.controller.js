@@ -142,7 +142,7 @@ exports.requiresLogin = function (req, res, next) {
 //GET
 //api/patinets
 exports.getPatients = function (req, res, next) {
-	User.find({ "role": "PATIENT" }, { "password": 0 }).sort('-created').exec((err, patients) => {
+	User.find({ "role": "PATIENT" }, { "password": 0, "local": 0, "salt": 0 }).sort('-fullName').exec((err, patients) => {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)

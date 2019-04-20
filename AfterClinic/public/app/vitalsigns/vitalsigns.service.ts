@@ -37,7 +37,7 @@ export class VitalSignsService {
 
 	list(): Observable<any> {
 		return this._http
-			.get(this._baseURL)
+            .post(this._baseURL + "/get", null)
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

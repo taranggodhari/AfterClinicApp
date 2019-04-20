@@ -27,7 +27,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-	VitalSigns.find().sort('-created').populate('nurse', 'firstName lastName fullName').exec((err, vitalsigns) => {
+	VitalSigns.find().sort('-created').exec((err, vitalsigns) => {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
@@ -79,6 +79,7 @@ exports.delete = function (req, res) {
 //The hasAuthorization() middleware uses the req.vitalsigns and req.user objects
 //to verify that the current user is the nurse of the current vitalsigns
 exports.hasAuthorization = function (req, res, next) {
+    req.vitalsign = req.body;
 	if (req.vitalsign.nurse.id !== req.user.id && req.vitalsign.nurse.role !== "NURSE") {
 		return res.status(403).send({
 			message: 'User is not authorized'

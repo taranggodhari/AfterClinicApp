@@ -1,39 +1,41 @@
 ﻿<div class="wrapper">
-	<div id="formContent">
-		<div class="first">
-			<h1 style="text-transform: uppercase; font-family: monospace; font-weight:bold; padding-top:10px;">Vital Signs</h1>
-		</div>
-		<div *ngIf="vitalsigns && vitalsigns.length > 0">
-			<table class="table table-dark">
-				<thead>
-					<tr>
-						<th scope="col">Body Temperature</th>
-						<th scope="col">Heart Rate</th>
-						<th scope="col">Blood Pressure</th>
-						<th scope="col">Respiratory Rate</th>
-						<th scope="col">Patient Name</th>
-						<th scope="col">Created By</th>
-						<th scope="col">Created At</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let vitalsign of vitalsigns">
-						<th scope="row"><a [routerLink]="['/vitalsigns', vitalsign._id]">{{vitalsign.bodyTemperature}}</a></th>
-						<td>{{vitalsign.bodyTemperature}}</td>
-						<td>{{vitalsign.heartRate}}</td>
-						<td>{{vitalsign.bloodPressure}}</td>
-						<td>{{vitalsign.respiratoryRate}}</td>
-						<td>{{vitalsign.patient.fullName}}</td>
-						<td>{{vitalsign.nurse.fullName}}</td>
-						<td>{{vitalsign.created | date:'MM/dd/yyyy'}}</td>
-					</tr>
-				</tbody>
-			</table>
-			<a class="btn btn-block btn-social btn btn-success" style="color:#fff;" [routerLink]="['/vitalsigns/create']"> Create New Vital Sign </a>
-		</div>
+    <div id="formContent">
+        <div class="first">
+            <h1 style="text-transform: uppercase; font-family: monospace; font-weight:bold; padding-top:10px;">Vital Signs</h1>
+        </div>
+        <div *ngIf="vitalsigns && vitalsigns.length > 0">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Body Temperature</th>
+                        <th scope="col">Heart Rate</th>
+                        <th scope="col">Blood Pressure</th>
+                        <th scope="col">Respiratory Rate</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vitalsign of vitalsigns">
+                        <th scope="row"><a [routerLink]="['/vitalsigns', vitalsign._id]">{{vitalsign.bodyTemperature}}</a></th>
+                        <td>{{vitalsign.bodyTemperature}}</td>
+                        <td>{{vitalsign.heartRate}}</td>
+                        <td>{{vitalsign.bloodPressure}}</td>
+                        <td>{{vitalsign.respiratoryRate}}</td>
+                        <td>{{vitalsign.patient.fullName}}</td>
+                        <td>{{vitalsign.nurse.fullName}}</td>
+                        <td>{{vitalsign.created | date:'MM/dd/yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-block btn-social btn btn-success" style="color:#fff;" [routerLink]="['/vitalsigns/create']"> Create New Vital Sign </a>
+        </div>
 
-		<div class="first" *ngIf="vitalsigns && vitalsigns.length === 0">
-			No vitalsigns yet, why don't you <a [routerLink]="['/vitalsigns/create']">create one</a>?
-		</div>
-	</div>
+        <div class="first" *ngIf="vitalsigns && vitalsigns.length === 0">
+            No vitalsigns yet, why don't you <a [routerLink]="['/vitalsigns/create']">create one</a>?
+        </div>
+    </div>
+
+    <a class="btn btn-light" [routerLink]="['/']"> Go Back To Home</a>
 </div>

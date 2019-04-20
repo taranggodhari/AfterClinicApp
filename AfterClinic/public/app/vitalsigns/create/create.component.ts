@@ -16,7 +16,10 @@ export class CreateComponent implements OnInit{
 		AuthenticationService) {
 		this.user = _authenticationService.getLoggedInUser();
 	}
-	create() {
+    create() {       
+        this.vitalsign.nurse = this.user;
+        console.log(this.vitalsign);
+
 		this._vitalSignsService
 			.create(this.vitalsign)
 			.subscribe(

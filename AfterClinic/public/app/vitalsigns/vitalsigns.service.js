@@ -57,7 +57,7 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 };
                 VitalSignsService.prototype.list = function () {
                     return this._http
-                        .get(this._baseURL)
+                        .post(this._baseURL + "/get", null)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

@@ -1,42 +1,41 @@
 ﻿<div class="wrapper ">
-	<div id="formContent">
-		<div class="first">
-			<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">New Vital Sign</h1>
-		</div>
-		<br />
-		<form (ngSubmit)="create()" novalidate>
-			<div class="input-group mb-3 ">
-				<select class="form-control" [(ngModel)]="patients" name="patients">
-					<option selected="" value=""></option>
-					<option [ngValue]="patient._id" *ngFor="let patient of patients">
-						{{patient.username}}
-					</option>
-				</select>
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.bodyTemperature" name="bodyTemperature" placeholder="Body Temperature" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.heartRate" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.bloodPressure" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.respiratoryRate" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<!--<div class="input-group mb-3 ">
-				<ul *ngIf="user">
-					<li *ngFor="let patient of patients">{{patient.username}}</li>
-				</ul>
-			</div>-->
-			<div style="text-align: center;">
-				<input type="submit" class="btn btn-primary" value="Create Vital Sign" />
-			</div>
-			<span style="color:red;"><b>{{errorMessage}}</b></span>
-		</form>
-		<hr />
-		<a class="btn btn-light" [routerLink]="['/vitalsigns']"> List all VitalSigns</a>
-		<br />
-	</div>
+    <div id="formContent">
+        <div class="first">
+            <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">New Vital Sign</h1>
+        </div>
+        <br />
+        <form (ngSubmit)="create()" novalidate>
+            <div class="input-group mb-3 ">
+                <select class="form-control" [(ngModel)]="vitalsign.patient" name="patients">
+                    <option selected="">Select A Patient</option>
+                    <option [ngValue]="patient" *ngFor="let patient of patients">
+                        {{patient.fullName}} - [{{patient.username}}]
+                    </option>
+                </select>
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.bodyTemperature" name="bodyTemperature" placeholder="Body Temperature" class="form-control">
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.heartRate" name="heartRate" placeholder="Heart Rate" class="form-control">
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.bloodPressure" name="bloodPressure" placeholder="Blood Pressure" class="form-control">
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.respiratoryRate" name="respiratoryRate" placeholder="Respiratory Rate" class="form-control">
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.nurse" value="{{user.username}}" name="nurse" placeholder="{{user.username}}" class="form-control" readonly>
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-primary" value="Create Vital Sign" />
+            </div>
+            <span style="color:red;"><b>{{errorMessage}}</b></span>
+        </form>
+        <hr />
+        <a class="btn btn-light" [routerLink]="['/vitalsigns']"> List all VitalSigns</a>
+        <a class="btn btn-light" [routerLink]="['/']"> Go Back To Home</a>
+        <br />
+    </div>
 </div>
