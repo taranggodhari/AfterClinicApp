@@ -44,7 +44,11 @@ System.register(["rxjs/Rx", "@angular/core", "@angular/http", "rxjs/Observable"]
                     });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post(this._signinURL, body, options)
-                        .map(function (res) { return _this.user = res.json(); })
+                        .map(function (res) {
+                        //this.user = res.json();
+                        _this.user = localStorage.setItem('user', JSON.stringify(res.json()));
+                        console.log(_this.user);
+                    })
                         .catch(this.handleError);
                 };
                 AuthenticationService.prototype.signup = function (user) {
@@ -55,8 +59,14 @@ System.register(["rxjs/Rx", "@angular/core", "@angular/http", "rxjs/Observable"]
                     });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post(this._signupURL, body, options)
-                        .map(function (res) { return _this.user = res.json(); })
+                        .map(function (res) {
+                        //this.user = res.json();
+                        _this.user = localStorage.setItem('user', JSON.stringify(res.json()));
+                    })
                         .catch(this.handleError);
+                };
+                AuthenticationService.prototype.getLoggedInUser = function () {
+                    return JSON.parse(localStorage.getItem('user'));
                 };
                 AuthenticationService.prototype.handleError = function (error) {
                     console.error(error);

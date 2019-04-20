@@ -7,9 +7,8 @@ import { Router } from '@angular/router';
 	templateUrl: './app/app.template.html'
 })
 export class AppComponent {
-	user: any;
 	constructor(private _authenticationService: AuthenticationService)
 	{
-		this.user = _authenticationService.user;
+		localStorage.removeItem('user');
 	}
 }

@@ -33,7 +33,7 @@ System.register(["@angular/core", "@angular/router", "../authentication.service"
                 SignupComponent.prototype.signup = function () {
                     var _this = this;
                     this._authenticationService.signup(this.user)
-                        .subscribe(function (result) { return _this._router.navigate(['/']); }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (result) { return _this._router.navigate(['/authentication/signin']); }, function (error) { return _this.errorMessage = error; });
                 };
                 SignupComponent = __decorate([
                     core_1.Component({

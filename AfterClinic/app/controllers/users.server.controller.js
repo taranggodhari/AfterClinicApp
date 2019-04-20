@@ -124,9 +124,9 @@ exports.saveOAuthUserProfile = function (req, profile, done) {
 exports.signout = function (req, res) {
     // Use the Passport 'logout' method to logout
     req.logout();
-
+	res.status(200);
     // Redirect the user back to the main application page
-    res.redirect('/');
+    //res.redirect('/');
 };
 //uses the Passport-initiated req.
 //isAuthenticated() method to check whether a user is currently authenticated
@@ -148,6 +148,7 @@ exports.getPatients = function (req, res, next) {
 				message: getErrorMessage(err)
 			});
 		} else {
+			console.log(patients);
 			res.status(200).json(patients);
 		}
 	});

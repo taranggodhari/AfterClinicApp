@@ -8,6 +8,7 @@ export class HomeComponent {
     user: any;
     constructor(private _authenticationService:
         AuthenticationService) {
-        this.user = _authenticationService.user;
+		//this.user = _authenticationService.user;
+		this.user = _authenticationService.getLoggedInUser();
     }
 }

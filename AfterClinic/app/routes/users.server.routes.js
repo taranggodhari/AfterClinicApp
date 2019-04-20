@@ -6,10 +6,10 @@ const passport = require('passport');
 module.exports = function (app) {
 
 	// GET All Patients
-	app.route('/api/patients').get(users.getPatients);
+	app.route('/api/patients').post(users.getPatients);
 
 	// GET All Nurses
-	app.route('/api/nurses').get(users.getNurses);
+	app.route('/api/nurses').post(users.getNurses);
 
     // Set up the 'signup' routes 
     app.route('/api/auth/signup').post(users.signup);

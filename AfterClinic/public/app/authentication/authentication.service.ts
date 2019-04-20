@@ -21,7 +21,11 @@ export class AuthenticationService {
         });
         let options = new RequestOptions({ headers: headers });
         return this.http.post(this._signinURL, body, options)
-            .map(res => this.user = res.json())
+			.map(res => {
+				//this.user = res.json();
+				this.user = localStorage.setItem('user', JSON.stringify(res.json()));
+				console.log(this.user);
+			})
             .catch(this.handleError)
     }
     signup(user: any): Observable<any> {
@@ -31,9 +35,15 @@ export class AuthenticationService {
             'application/json'
         }); let options = new RequestOptions({ headers: headers });
         return this.http.post(this._signupURL, body, options)
-            .map(res => this.user = res.json())
+			.map(res => {
+				//this.user = res.json();
+				this.user = localStorage.setItem('user', JSON.stringify(res.json()));
+			})
             .catch(this.handleError)
-    }
+	}
+	public getLoggedInUser() {
+		return JSON.parse(localStorage.getItem('user'));
+	}
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().message ||

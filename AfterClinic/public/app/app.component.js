@@ -24,7 +24,7 @@ System.register(["@angular/core", "./authentication/authentication.service"], fu
             AppComponent = /** @class */ (function () {
                 function AppComponent(_authenticationService) {
                     this._authenticationService = _authenticationService;
-                    this.user = _authenticationService.user;
+                    localStorage.removeItem('user');
                 }
                 AppComponent = __decorate([
                     core_1.Component({

@@ -24,7 +24,8 @@ System.register(["@angular/core", "../authentication/authentication.service"], f
             HomeComponent = /** @class */ (function () {
                 function HomeComponent(_authenticationService) {
                     this._authenticationService = _authenticationService;
-                    this.user = _authenticationService.user;
+                    //this.user = _authenticationService.user;
+                    this.user = _authenticationService.getLoggedInUser();
                 }
                 HomeComponent = __decorate([
                     core_1.Component({

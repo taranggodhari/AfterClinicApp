@@ -5,6 +5,7 @@ import { Http, Headers, Request, RequestMethod, Response } from '@angular/http';
 @Injectable()
 export class VitalSignsService {
 	private _baseURL = 'api/vitalsigns';
+	private _getPatientsUrl = 'api/patients';
 	constructor(private _http: Http) { }
 	
 	create(vitalsign: any): Observable<any> {
@@ -37,6 +38,12 @@ export class VitalSignsService {
 	list(): Observable<any> {
 		return this._http
 			.get(this._baseURL)
+			.map((res: Response) => res.json())
+			.catch(this.handleError);
+	}
+	getPatients(): Observable<any> {
+		return this._http
+			.post(this._getPatientsUrl, null)
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

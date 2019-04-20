@@ -30,6 +30,7 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 function VitalSignsService(_http) {
                     this._http = _http;
                     this._baseURL = 'api/vitalsigns';
+                    this._getPatientsUrl = 'api/patients';
                 }
                 VitalSignsService.prototype.create = function (vitalsign) {
                     return this._http
@@ -57,6 +58,12 @@ System.register(["rxjs/Rx", "rxjs/Observable", "@angular/core", "@angular/http"]
                 VitalSignsService.prototype.list = function () {
                     return this._http
                         .get(this._baseURL)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                VitalSignsService.prototype.getPatients = function () {
+                    return this._http
+                        .post(this._getPatientsUrl, null)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

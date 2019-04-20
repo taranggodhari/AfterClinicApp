@@ -12,7 +12,7 @@ export class SignupComponent {
         private _router: Router) { }
     signup() {
         this._authenticationService.signup(this.user)
-            .subscribe(result => this._router.navigate(['/']),
+			.subscribe(result => this._router.navigate(['/authentication/signin']),
             error => this.errorMessage = error);
     }
 }
