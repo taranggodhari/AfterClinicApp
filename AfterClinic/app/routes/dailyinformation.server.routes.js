@@ -3,7 +3,7 @@ const dailyinformation = require('../controllers/dailyinformation.server.control
 //
 module.exports = function (app) {
 	//GET DailyInformation
-	app.route('/api/dailyinformation').get(dailyinformation.list);
+	app.route('/api/dailyinformation/get').post(dailyinformation.list);
 
 	//POST DailyInformation
 	app.route('/api/dailyinformation').post(users.requiresLogin, dailyinformation.hasAuthorization, dailyinformation.create);

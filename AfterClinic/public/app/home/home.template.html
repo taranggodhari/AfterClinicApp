@@ -10,40 +10,45 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" [routerLink]="['/']">
-                        <ng-container *ngIf="user.role == 'NURSE'">Nurse</ng-container> <ng-container *ngIf="user.role == 'PATIENT'">Patient</ng-container>
-                        Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="user.role == 'NURSE'">
-                    <a class="nav-link" [routerLink]="['/vitalsigns']">
-                        Vital Signs
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="user.role == 'NURSE'">
-                    <a class="nav-link" [routerLink]="['/dailytips']">
-                        Motivational Tips 
-                    </a>
-                </li>
-                <!--<li class="nav-item" *ngIf="user.role == 'NURSE'">
-        <a class="nav-link" [routerLink]="['/patients']">
-            List Patients
-        </a>
-    </li>-->
-                <li class="nav-item" *ngIf="user.role == 'PATIENT'">
-                    <a class="nav-link" [routerLink]="['/dailyinformation']">
-                        Enter Daily Info
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="user.role == 'PATIENT'">
-                    <a class="nav-link" [routerLink]="['/dailytips/list']">
-                        Daily Motivations
-                    </a>
-                </li>
-            </ul>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" [routerLink]="['/']">
+						<ng-container *ngIf="user.role == 'NURSE'">Nurse</ng-container> <ng-container *ngIf="user.role == 'PATIENT'">Patient</ng-container>
+						Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'NURSE'">
+					<a class="nav-link" [routerLink]="['/vitalsigns']">
+						Vital Signs
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'NURSE'">
+					<a class="nav-link" [routerLink]="['/dailytips']">
+						Motivational Tips
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'NURSE'">
+					<a class="nav-link" [routerLink]="['/dailyinformations']">
+						Patient's Daily Info
+					</a>
+				</li>
+				<!--<li class="nav-item" *ngIf="user.role == 'NURSE'">
+		<a class="nav-link" [routerLink]="['/patients']">
+			List Patients
+		</a>
+	</li>-->
+				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
+					<a class="nav-link" [routerLink]="['/dailyinformations/create']">
+						Enter Daily Info
+					</a>
+				</li>
+				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
+					<a class="nav-link" [routerLink]="['/dailytips/list']">
+						Daily Motivations
+					</a>
+				</li>
+			</ul>
         </div>
         <div class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
@@ -63,17 +68,20 @@
         <div *ngIf="user">
             <h1 class="display-3">Welcome {{user.fullName}}</h1>
             <hr class="my-4">
-            <p *ngIf="user.role == 'NURSE'">
-                <a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns']">
-                    Vital Sign
-                </a>
-                <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips']">
-                    Motivational Tips
-                </a>
-            </p>
+			<p *ngIf="user.role == 'NURSE'">
+				<a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns']">
+					Vital Sign
+				</a>
+				<a class="btn btn-primary btn-lg" [routerLink]="['/dailytips']">
+					Motivational Tips
+				</a>
+				<a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformations']">
+					Patient's Daily Info
+				</a>
+			</p>
             <p *ngIf="user.role == 'PATIENT'">
 
-                <a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformation']">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformations/create']">
                     Enter Daily Info
                 </a>
                 <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips/list']">

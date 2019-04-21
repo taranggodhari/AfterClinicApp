@@ -9,9 +9,9 @@ const DailyInformationSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	patient: {
+	creator: {
 		type: Schema.ObjectId,
-		ref: 'PATIENT'
+		ref: 'User'
 	},
 	created: {
 		type: Date,
