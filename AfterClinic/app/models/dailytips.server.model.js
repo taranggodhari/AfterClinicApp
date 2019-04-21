@@ -11,7 +11,7 @@ const DailyTipsSchema = mongoose.Schema({
 	},
 	nurse: {
 		type: Schema.ObjectId,
-		ref: 'NURSE'
+		ref: 'User'
 	},
 	created: {
 		type: Date,

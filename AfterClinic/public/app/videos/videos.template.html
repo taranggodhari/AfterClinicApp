@@ -29,10 +29,10 @@
                     </a>
                 </li>
                 <!--<li class="nav-item" *ngIf="user.role == 'NURSE'">
-        <a class="nav-link" [routerLink]="['/patients']">
-            List Patients
-        </a>
-    </li>-->
+                    <a class="nav-link" [routerLink]="['/patients']">
+                        List Patients
+                    </a>
+                </li>-->
                 <li class="nav-item" *ngIf="user.role == 'PATIENT'">
                     <a class="nav-link" [routerLink]="['/dailyinformation']">
                         Enter Daily Info
@@ -41,11 +41,6 @@
                 <li class="nav-item" *ngIf="user.role == 'PATIENT'">
                     <a class="nav-link" [routerLink]="['/dailytips/list']">
                         Daily Motivations
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="user.role == 'PATIENT'">
-                    <a class="nav-link" [routerLink]="['/videos']">
-                       Motivational Videos
                     </a>
                 </li>
             </ul>
@@ -65,45 +60,25 @@
 <!----------------------- Container-------------------------->
 <div class="container">
     <div class="jumbotron">
-        <div *ngIf="user">
-            <h1 class="display-3">Welcome {{user.fullName}}</h1>
-            <hr class="my-4">
-            <p *ngIf="user.role == 'NURSE'">
-                <a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns']">
-                    Vital Sign
-                </a>
-                <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips']">
-                    Motivational Tips
-                </a>
-            </p>
-            <p *ngIf="user.role == 'PATIENT'">
+        <div class="row" style="padding:30px;" *ngFor="let video of videos">
+            <div class="col-md-4">
+                <h4>GoalCast Playlist</h4>
+                <p>
+                    {{video.desc}}s
+                </p>
 
-                <a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformation']">
-                    Enter Daily Info
-                </a>
-                <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips/list']">
-                    Daily Motivations
-                </a>
-            </p>
-        </div>
-        <div *ngIf="!user">
-            <div>
-                <img class="img-main" src="/images/after-clinic-logo.png" />
-            </div>
-            <h1 class="display-3">Welcome to After Clinic!</h1>
-            <p class="lead">We can help you in monitoing your patients by keeping track of their vital signs and sending them their daily motivational tips.</p>
-            <hr class="my-4">
-            <p>
+            </div><!--.col -->
 
-            </p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signin']">
-                    Login
-                </a>
-                <a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signup']">
-                    Register
-                </a>
-            </p>
-        </div>
+            <div class="col-md-8">
+                <div class="vid">
+                    <iframe width="560" height="315" [src]="video.url | safe" rameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div><!--./vid -->
+
+            </div><!--.col -->
+            <br />
+            <hr />
+        </div><!--./row -->
+        <hr />
     </div>
-</div>
+</div><!--./container -->
+<!--<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nUsHePihYO4" rameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->

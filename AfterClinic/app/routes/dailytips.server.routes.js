@@ -3,7 +3,7 @@ const dailytips = require('../controllers/dailytips.server.controller');
 //
 module.exports = function (app) {
 	//GET DailyTips
-	app.route('/api/dailytips').get(dailytips.list);
+	app.route('/api/dailytips/get').post(dailytips.list);
 
 	//POST DailyTips
 	app.route('/api/dailytips').post(users.requiresLogin, dailytips.hasAuthorization, dailytips.create);

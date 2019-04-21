@@ -27,7 +27,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-	DailyInformation.find().sort('-created').populate('patient', 'firstName lastName fullName').exec((err, dailyinformations) => {
+    DailyInformation.find().sort('-created').populate('patient', 'firstName lastName fullName').exec((err, dailyinformations) => {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)

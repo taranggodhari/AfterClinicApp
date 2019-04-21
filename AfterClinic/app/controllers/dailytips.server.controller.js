@@ -14,7 +14,7 @@ function getErrorMessage(err) {
 //
 exports.create = function (req, res) {
 	const dailytip = new DailyTips(req.body);
-	dailytip.nurse = req.user;
+	dailytip.nurse = req.body.nurse;
 	dailytip.save((err) => {
 		if (err) {
 			return res.status(400).send({
@@ -79,6 +79,7 @@ exports.delete = function (req, res) {
 //The hasAuthorization() middleware uses the req.dailytips and req.user objects
 //to verify that the current user is the nurse of the current dailytips
 exports.hasAuthorization = function (req, res, next) {
+    req.dailytip = req.body;
 	if (req.dailytip.nurse.id !== req.user.id && req.dailytip.nurse.role !== "NURSE") {
 		return res.status(403).send({
 			message: 'User is not authorized'

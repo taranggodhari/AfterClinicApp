@@ -68,6 +68,12 @@
     <Content Include="public\app\authentication\authentication.template.html" />
     <Content Include="public\app\authentication\signin\signin.template.html" />
     <Content Include="public\app\authentication\signup\signup.template.html" />
+    <Content Include="public\app\dailytips\create\create.template.html" />
+    <Content Include="public\app\dailytips\edit\edit.template.html" />
+    <Content Include="public\app\dailytips\list\list.template.html" />
+    <Content Include="public\app\dailytips\view\view.template.html" />
+    <Content Include="public\app\dailytips\dailytips.template.html" />
+    <Content Include="public\app\videos\videos.template.html" />
     <Content Include="public\app\vitalsigns\vitalsigns.template.html" />
     <Content Include="public\app\vitalsigns\create\create.template.html" />
     <Content Include="public\app\vitalsigns\edit\edit.template.html" />
@@ -102,6 +108,12 @@
     <Folder Include="public\app\authentication\" />
     <Folder Include="public\app\authentication\signin\" />
     <Folder Include="public\app\authentication\signup\" />
+    <Folder Include="public\app\dailytips\" />
+    <Folder Include="public\app\dailytips\create\" />
+    <Folder Include="public\app\dailytips\edit\" />
+    <Folder Include="public\app\dailytips\list\" />
+    <Folder Include="public\app\dailytips\view\" />
+    <Folder Include="public\app\videos\" />
     <Folder Include="public\app\vitalsigns\" />
     <Folder Include="public\app\vitalsigns\create\" />
     <Folder Include="public\app\vitalsigns\edit\" />
@@ -129,6 +141,23 @@
     <TypeScriptCompile Include="public\app\authentication\signin\signin.component.ts" />
     <TypeScriptCompile Include="public\app\authentication\signup\signup.component.ts" />
     <TypeScriptCompile Include="public\app\bootstrap.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\create\create.component.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\edit\edit.component.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\list\list.component.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\view\view.component.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\dailytips.component.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\dailytips.modules.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\dailytips.routes.ts" />
+    <TypeScriptCompile Include="public\app\dailytips\dailytips.service.ts" />
+    <TypeScriptCompile Include="public\app\videos\SafePipe.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\videos\videos.component.ts" />
+    <TypeScriptCompile Include="public\app\videos\videos.module.ts" />
+    <TypeScriptCompile Include="public\app\videos\videos.routes.ts" />
+    <TypeScriptCompile Include="public\app\videos\videos.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="public\app\vitalsigns\vitalsigns.component.ts" />
     <TypeScriptCompile Include="public\app\vitalsigns\vitalsigns.modules.ts" />
     <TypeScriptCompile Include="public\app\vitalsigns\vitalsigns.routes.ts" />

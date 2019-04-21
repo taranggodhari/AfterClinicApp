@@ -1,0 +1,53 @@
+﻿<div class="wrapper">
+    <div id="formContent">
+        <div class="first">
+            <h1 style="text-transform: uppercase; font-family: monospace; font-weight:bold; padding-top:10px;">Motivational Tips</h1>
+        </div>
+        <div *ngIf="!dailytips">
+            No Motivational Tips yet, why don't you <a [routerLink]="['/dailytips/create']">create one</a>?
+        </div>
+        <!--<div *ngIf="dailytips && dailytips.length > 0">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-info">
+                        <th scope="col">Nurse Name</th>
+                        <th scope="col">Motivational Tip</th>
+                        <th scope="col">Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dailytip of dailytips" class="table-light">
+                        <th scope="row"><a [routerLink]="['/dailytips', dailytip._id]">{{dailytip.nurse.fullName}}</a></th>
+                        <td>{{dailytip.tip}}</td>
+                        <td>{{dailytip.created | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-social btn btn-success" style="color:#fff;" [routerLink]="['/dailytips/create']"> Create New Motivational Tip </a>
+        </div>-->
+
+
+        <div class="container" *ngIf="dailytips && dailytips.length > 0">
+            <div class="card-columns">
+                <div class="card border-primary mb-3" *ngFor="let dailytip of dailytips" style="max-width: 20rem;">
+                    <div class="card-header">
+                        <a [routerLink]="['/dailytips', dailytip._id]">{{dailytip.nurse.fullName}}</a>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">{{dailytip.tip}}</p>
+                            <footer class="blockquote-footer"> {{dailytip.nurse.fullName}} at <cite title="Source Title">{{dailytip.created | date:'MM/dd/yyyy HH:mm:ss'}}</cite></footer>
+                        </blockquote>
+                    </div>
+                    <!--<div class="card-footer text-muted">
+                        <button type="button" class="btn btn-outline-primary" [routerLink]="['/courses', course._id]">View Details</button>
+                    </div>-->
+                </div>
+            </div>
+            <a class="btn btn-social btn btn-success" style="color:#fff;" [routerLink]="['/dailytips/create']"> Create A New Motivational Tip </a>
+        </div>
+    </div>
+</div>
+
+
+<!--<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nUsHePihYO4" rameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->

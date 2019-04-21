@@ -1,0 +1,28 @@
+﻿<div class="wrapper ">
+	<div id="formContent">
+		<div class="first">
+			<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Edit Vital Sign</h1>
+		</div>
+		<br />
+        <form (ngSubmit)="update()" novalidate>
+            <div class="input-group mb-3 ">
+                <label for="tip">Write a motivational Tip </label>
+                <textarea class="form-control" [(ngModel)]="dailytip.tip" id="tip" name="tip" required rows="5"></textarea>
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> - written by Nurse {{user.fullName}} - [{{user.username}}] </span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-primary" value="Update Vital Sign" />
+            </div>
+            <span style="color:red;"><b>{{errorMessage}}</b></span>
+        </form>
+		<hr />
+		<a class="btn btn-light" [routerLink]="['/dailytips']"> List all Vital Signs</a>
+		<br />
+	</div>
+</div>

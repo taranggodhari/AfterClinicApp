@@ -1,0 +1,26 @@
+﻿<div class="wrapper ">
+	<div id="formContent">
+		<section *ngIf="dailytip && dailytip.nurse">
+			<div class="card text-center">
+				<div class="card-header">
+					<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Vital Sign Detail</h1>
+				</div>
+				<div class="card-body">
+					<h4 class="card-title">{{dailytip.nurse.fullName}}</h4>
+					<p class="card-text"><b>Heart Rate: </b>{{dailytip.tip}}</p>
+					<div *ngIf="allowEdit">
+						<a class="btn btn-primary" [routerLink]="['/dailytips', dailytip._id, 'edit']">EDIT</a>
+						<button class="btn btn-danger" (click)="delete()">DELETE</button>
+					</div>
+				</div>
+				<div class="card-footer text-muted">
+					Posted on {{dailytip.created | date:'MM/dd/yyyy'}} by {{dailytip.nurse.fullName}}
+				</div>
+			</div>
+		</section>
+		<div class="card-footer">
+			<a [routerLink]="['/dailytips']" style="font-size:larger"> &laquo; All Motivational Tips</a>
+		</div>
+	</div>
+</div>
+
