@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/router", "../vitalsigns.service", "../../authentication/authentication.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../vitalsigns.service", '../../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service", ".
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, vitalsigns_service_1, authentication_service_1, CreateComponent;
-    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, vitalsigns_service_1, authentication_service_1;
+    var CreateComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -24,10 +25,9 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service", ".
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }
-        ],
-        execute: function () {
-            CreateComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            CreateComponent = (function () {
                 function CreateComponent(_router, _vitalSignsService, _authenticationService) {
                     this._router = _router;
                     this._vitalSignsService = _vitalSignsService;
@@ -53,14 +53,13 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service", ".
                     core_1.Component({
                         selector: "create",
                         templateUrl: "app/vitalsigns/create/create.template.html"
-                    }),
-                    __metadata("design:paramtypes", [router_1.Router, vitalsigns_service_1.VitalSignsService,
-                        authentication_service_1.AuthenticationService])
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, vitalsigns_service_1.VitalSignsService, authentication_service_1.AuthenticationService])
                 ], CreateComponent);
                 return CreateComponent;
             }());
             exports_1("CreateComponent", CreateComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=create.component.js.map

@@ -1,5 +1,6 @@
 ﻿const mongoose = require('mongoose');
 const VitalSigns = mongoose.model('VitalSigns');
+const User = require('mongoose').model('User');
 //
 function getErrorMessage(err) {
 	if (err.errors) {
@@ -27,12 +28,27 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-	VitalSigns.find().sort('-created').exec((err, vitalsigns) => {
+    VitalSigns.find().sort('-created')
+        .populate('nurse')
+        .populate('patient')
+        .exec((err, vitalsigns) => {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
-		} else {
+        } else {
+            //vitalsigns.forEach((vitalsign) => {
+            //    User.findById(vitalsign.nurse.id, function (err, nurse) {
+            //        if (err) return next(err);
+            //        vitalsign.nurse = nurse;
+            //    });
+                
+            //    User.findById(vitalsign.patient.id, function (err, patient) {
+            //        if (err) return next(err);
+            //        vitalsign.patient = patient;
+            //    });
+               
+            //});
 			res.status(200).json(vitalsigns);
 		}
 	});

@@ -1,100 +1,104 @@
 ﻿<!-----------------------Nav Bar-------------------------->
 <div *ngIf="user">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" [routerLink]="['/']">
-			<img src="../images/after-clinic-name.png" class="nav-icon" />
-		</a>
-		<!--<a class="navbar-brand" href="#">Navbar</a>-->
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" [routerLink]="['/']">
+            <img src="../images/after-clinic-name.png" class="nav-icon" />
+        </a>
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-		<div class="collapse navbar-collapse" id="navbarColor01">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" [routerLink]="['/']">
-					<ng-container *ngIf="user.role == 'NURSE'">Nurse</ng-container> <ng-container *ngIf="user.role == 'PATIENT'">Patient</ng-container>
-					Home 
-					<span class="sr-only">(current)</span></a>
-				</li>
-
-				<li class="nav-item" *ngIf="user.role == 'NURSE'">
-					<a class="nav-link" [routerLink]="['/patients']">
-						List Patients
-					</a>
-				</li>
-				<li class="nav-item" *ngIf="user.role == 'NURSE'">
-					<a class="nav-link" [routerLink]="['/vitalsigns/create']">
-						Add Vital Signs
-					</a>
-				</li>
-				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
-					<a class="nav-link" [routerLink]="['/dailyinformation']">
-						Enter Daily Info
-					</a>
-				</li>
-				<li class="nav-item" *ngIf="user.role == 'PATIENT'">
-					<a class="nav-link" [routerLink]="['/dailytips/list']">
-						Daily Motivations
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="form-inline my-2 my-lg-0">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="btn btn-outline-white disabled" style="color:#fff;">Hello, {{user.fullName}}</a>
-				</li>
-				<li class="nav-item">
-					<a class="btn btn-outline-white" href="/api/auth/signout"><b>Logout</b></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/']">
+                        <ng-container *ngIf="user.role == 'NURSE'">Nurse</ng-container> <ng-container *ngIf="user.role == 'PATIENT'">Patient</ng-container>
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="user.role == 'NURSE'">
+                    <a class="nav-link" [routerLink]="['/vitalsigns']">
+                        Vital Signs
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="user.role == 'NURSE'">
+                    <a class="nav-link" [routerLink]="['/dailytips']">
+                        Motivational Tips 
+                    </a>
+                </li>
+                <!--<li class="nav-item" *ngIf="user.role == 'NURSE'">
+        <a class="nav-link" [routerLink]="['/patients']">
+            List Patients
+        </a>
+    </li>-->
+                <li class="nav-item" *ngIf="user.role == 'PATIENT'">
+                    <a class="nav-link" [routerLink]="['/dailyinformation']">
+                        Enter Daily Info
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="user.role == 'PATIENT'">
+                    <a class="nav-link" [routerLink]="['/dailytips/list']">
+                        Daily Motivations
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-white disabled" style="color:#fff;">Hello, {{user.fullName}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-white" href="/api/auth/signout"><b>Logout</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
 <!----------------------- Container-------------------------->
 <div class="container">
-	<div class="jumbotron">
-		<div *ngIf="user">
-			<h1 class="display-3">Welcome {{user.fullName}}</h1>
-			<hr class="my-4">
-			<p *ngIf="user.role == 'NURSE'">
+    <div class="jumbotron">
+        <div *ngIf="user">
+            <h1 class="display-3">Welcome {{user.fullName}}</h1>
+            <hr class="my-4">
+            <p *ngIf="user.role == 'NURSE'">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns']">
+                    Vital Sign
+                </a>
+                <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips']">
+                    Motivational Tips
+                </a>
+            </p>
+            <p *ngIf="user.role == 'PATIENT'">
 
-				<a class="btn btn-primary btn-lg" [routerLink]="['/patients']">
-					List Patients
-				</a>
-				<a class="btn btn-primary btn-lg" [routerLink]="['/vitalsigns/create']">
-					Add Vital Sign
-				</a>
-			</p>
-			<p *ngIf="user.role == 'PATIENT'">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformation']">
+                    Enter Daily Info
+                </a>
+                <a class="btn btn-primary btn-lg" [routerLink]="['/dailytips/list']">
+                    Daily Motivations
+                </a>
+            </p>
+        </div>
+        <div *ngIf="!user">
+            <div>
+                <img class="img-main" src="/images/after-clinic-logo.png" />
+            </div>
+            <h1 class="display-3">Welcome to After Clinic!</h1>
+            <p class="lead">We can help you in monitoing your patients by keeping track of their vital signs and sending them their daily motivational tips.</p>
+            <hr class="my-4">
+            <p>
 
-				<a class="btn btn-primary btn-lg" [routerLink]="['/dailyinformation']">
-					Enter Daily Info
-				</a>
-				<a class="btn btn-primary btn-lg" [routerLink]="['/dailytips/list']">
-					Daily Motivations
-				</a>
-			</p>
-		</div>
-		<div *ngIf="!user">
-			<div>
-				<img class="img-main" src="/images/after-clinic-logo.png" />
-			</div>
-			<h1 class="display-3">Welcome to After Clinic!</h1>
-			<p class="lead">We can help you in monitoing your patients by keeping track of their vital signs and sending them their daily motivational tips.</p>
-			<hr class="my-4">
-			<p>
-
-			</p>
-			<p class="lead">
-				<a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signin']">
-					Login
-				</a>
-				<a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signup']">
-					Register
-				</a>
-			</p>
-		</div>
-	</div>
+            </p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signin']">
+                    Login
+                </a>
+                <a class="btn btn-primary btn-lg" [routerLink]="['/authentication/signup']">
+                    Register
+                </a>
+            </p>
+        </div>
+    </div>
 </div>

@@ -2,8 +2,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-
 // Define a new 'UserSchema'
 const VitalSignsSchema = new Schema({
 	bodyTemperature: {
@@ -32,11 +30,11 @@ const VitalSignsSchema = new Schema({
 	},
 	patient: {
 		type: Schema.ObjectId,
-		ref: 'PATIENT'
+		ref: 'User'
 	},
 	nurse: {
 		type: Schema.ObjectId,
-		ref: 'NURSE'
+		ref: 'User'
 	},
 	created: {
 		type: Date,

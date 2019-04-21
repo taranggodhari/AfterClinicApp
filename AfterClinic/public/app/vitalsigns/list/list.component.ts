@@ -9,6 +9,13 @@ export class ListComponent {
   errorMessage: string;
 	constructor(private _vitalSignsService: VitalSignsService) {}
   ngOnInit() {
-	  this._vitalSignsService.list().subscribe(vitalsigns => (this.vitalsigns = vitalsigns));
+      this._vitalSignsService.list().subscribe(vitalsigns => {
+          if (JSON.stringify(vitalsigns) !== '[]') {
+              this.vitalsigns = vitalsigns;
+          } else {
+              this.vitalsigns = null;
+          }
+          
+      });
   }
 }

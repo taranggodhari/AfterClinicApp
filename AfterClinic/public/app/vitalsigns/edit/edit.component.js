@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/router", "../vitalsigns.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../vitalsigns.service"], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service"], f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, vitalsigns_service_1, EditComponent;
-    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, vitalsigns_service_1;
+    var EditComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,10 +22,9 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service"], f
             },
             function (vitalsigns_service_1_1) {
                 vitalsigns_service_1 = vitalsigns_service_1_1;
-            }
-        ],
-        execute: function () {
-            EditComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            EditComponent = (function () {
                 function EditComponent(_router, _route, _vitalSignsService) {
                     this._router = _router;
                     this._route = _route;
@@ -53,15 +53,13 @@ System.register(["@angular/core", "@angular/router", "../vitalsigns.service"], f
                     core_1.Component({
                         selector: "edit",
                         templateUrl: "app/vitalsigns/edit/edit.template.html"
-                    }),
-                    __metadata("design:paramtypes", [router_1.Router,
-                        router_1.ActivatedRoute,
-                        vitalsigns_service_1.VitalSignsService])
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, vitalsigns_service_1.VitalSignsService])
                 ], EditComponent);
                 return EditComponent;
             }());
             exports_1("EditComponent", EditComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=edit.component.js.map

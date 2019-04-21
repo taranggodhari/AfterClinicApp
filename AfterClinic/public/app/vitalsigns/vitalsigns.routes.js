@@ -1,9 +1,10 @@
-System.register(["./vitalsigns.component", "./create/create.component", "./list/list.component", "./view/view.component", "./edit/edit.component"], function (exports_1, context_1) {
+System.register(['./vitalsigns.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
     "use strict";
-    var vitalsigns_component_1, create_component_1, list_component_1, view_component_1, edit_component_1, VitalSignsRoutes;
     var __moduleName = context_1 && context_1.id;
+    var vitalsigns_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
+    var VitalSignsRoutes;
     return {
-        setters: [
+        setters:[
             function (vitalsigns_component_1_1) {
                 vitalsigns_component_1 = vitalsigns_component_1_1;
             },
@@ -18,9 +19,8 @@ System.register(["./vitalsigns.component", "./create/create.component", "./list/
             },
             function (edit_component_1_1) {
                 edit_component_1 = edit_component_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             exports_1("VitalSignsRoutes", VitalSignsRoutes = [{
                     path: 'vitalsigns',
                     component: vitalsigns_component_1.VitalSignsComponent,
@@ -32,6 +32,6 @@ System.register(["./vitalsigns.component", "./create/create.component", "./list/
                     ],
                 }]);
         }
-    };
+    }
 });
 //# sourceMappingURL=vitalsigns.routes.js.map
