@@ -1,0 +1,22 @@
+﻿<div class="row justify-content-center">
+    <div id="col-md-10">
+        <div class="first">
+            <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Enter Your Daily Activities</h1>
+        </div>
+        <br />
+        <form (ngSubmit)="create()" novalidate>
+            <div class="input-group mb-3 ">
+                <textarea type="text" required [(ngModel)]="dailyinformation.information" name="information" placeholder="Enter Your daily information. ex. Heart Rate, Blood Pressure, etc." class="form-control"></textarea>
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-success" value="Submit" />
+            </div>
+			<h5>*All the Nurses will be able to see your daily information.</h5>
+            <span style="color:red;"><b>{{errorMessage}}</b></span>
+        </form>
+        <hr />
+        <div style="text-align: center;">
+            <a class="btn btn-primary" [routerLink]="['/dailyinformations']"> List my Daily Informations</a>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ function getErrorMessage(err) {
 //
 exports.create = function (req, res) {
 	const dailyinformation = new DailyInformation(req.body);
-	dailyinformation.patient = req.user;
+	dailyinformation.creator = req.body.creator;
 	dailyinformation.save((err) => {
 		if (err) {
 			return res.status(400).send({
@@ -27,7 +27,7 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    DailyInformation.find().sort('-created').populate('patient', 'firstName lastName fullName').exec((err, dailyinformations) => {
+	DailyInformation.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, dailyinformations) => {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
@@ -39,7 +39,7 @@ exports.list = function (req, res) {
 };
 //
 exports.getDailyInformationById = function (req, res, next, id) {
-	DailyInformation.findById(id).populate('patient', 'firstName lastName fullName').exec((err, dailyinformation) => {
+	DailyInformation.findById(id).populate('creator', 'firstName lastName fullName').exec((err, dailyinformation) => {
 		if (err) return next(err);
 		if (!dailyinformation) return next(new Error('Failed to load Daily Information ' + id));
 		req.dailyinformation = dailyinformation;
@@ -77,9 +77,10 @@ exports.delete = function (req, res) {
 	});
 };
 //The hasAuthorization() middleware uses the req.dailyinformation and req.user objects
-//to verify that the current user is the patient of the current dailyinformation
+//to verify that the current user is the creator of the current dailyinformation
 exports.hasAuthorization = function (req, res, next) {
-	if (req.dailyinformation.patient.id !== req.user.id && req.dailyinformation.patient.role !== "PATIENT") {
+	req.dailyinformation = req.body;
+	if (req.dailyinformation.creator.id !== req.user.id && req.dailyinformation.creator.role !== "PATIENT") {
 		return res.status(403).send({
 			message: 'User is not authorized'
 		});

@@ -1,0 +1,49 @@
+﻿<div *ngIf="user" class="wrapper">
+	<div id="formContent">
+		<div class="first">
+			<h1 style="text-transform: uppercase; font-family: monospace; font-weight:bold; padding-top:10px;">
+				Daily Informations <ng-container *ngIf="user.role == 'NURSE'">of Patients</ng-container>
+			</h1>
+		</div>
+		<div *ngIf="!dailyinformations && user.role === 'PATIENT'">
+			No daily information yet, why don't you <a [routerLink]="['/dailyinformations/create']">create one</a>?
+		</div>
+		<!------------------------------------PATIENT-------------------------------------->
+		<div *ngIf="dailyinformations && dailyinformations.length > 0 && user.role === 'PATIENT'">
+			<table class="table table-hover">
+				<thead>
+					<tr class="table-info">
+						<th scope="col">Information</th>
+						<th scope="col">Created At</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let dailyInformation of dailyinformations" class="table-light">
+						<th scope="row"><a [routerLink]="['/dailyinformations', dailyInformation._id]">{{dailyInformation.information}}</a></th>
+						<td>{{dailyInformation.created | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="btn btn-social btn btn-success" style="color:#fff;" [routerLink]="['/dailyinformations/create']"> Create New Daily Info </a>
+		</div>
+		<!------------------------------------NURSE-------------------------------------->
+		<div *ngIf="dailyinformations && dailyinformations.length > 0 && user.role === 'NURSE'">
+			<table class="table table-hover">
+				<thead>
+					<tr class="table-info">
+						<th scope="col">Patient Name</th>
+						<th scope="col">Information</th>
+						<th scope="col">Created At</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let dailyInformation of dailyinformations" class="table-light">
+						<th scope="row"> <a [routerLink]="['/dailyinformations', dailyInformation._id]"> {{dailyInformation.creator.fullName}}</a></th>
+						<td >{{dailyInformation.information}}</td>
+						<td>{{dailyInformation.created | date:'MM/dd/yyyy HH:mm:ss'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
