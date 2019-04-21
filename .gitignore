@@ -27,10 +27,10 @@ coverage/
 
 # MEAN.js app and assets
 # ======================
-public/app/*.js
-public/app/*.js.map
-public/app/*/*.js
-public/app/*/*.js.map
+AfterClinic/public/app/*.js
+AfterClinic/public/app/*.js.map
+AfterClinic/public/app/*/*.js
+AfterClinic/public/app/*/*.js.map
 *.pem
 
 
