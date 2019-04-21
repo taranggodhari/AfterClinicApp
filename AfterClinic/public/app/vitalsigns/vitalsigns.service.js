@@ -39,7 +39,7 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
                 };
                 VitalSignsService.prototype.read = function (vitalsignId) {
                     return this._http
-                        .get(this._baseURL + "/" + vitalsignId)
+                        .post(this._baseURL + "/" + vitalsignId, null)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

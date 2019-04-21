@@ -39,7 +39,7 @@ System.register(["@angular/core", "@angular/router", "../../authentication/authe
                 //
                 ViewComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.user = this._authenticationService.user;
+                    this.user = this._authenticationService.getLoggedInUser();
                     this.paramsObserver = this._route.params.subscribe(function (params) {
                         var dailytipId = params["dailytipId"];
                         _this._dailyTipsService.read(dailytipId).subscribe(function (dailytip) {

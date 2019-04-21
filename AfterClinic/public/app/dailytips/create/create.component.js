@@ -44,11 +44,6 @@ System.register(["@angular/core", "@angular/router", "../dailytips.service", '..
                         .subscribe(function (createdDailyTip) { return _this._router.navigate(["/dailytips", createdDailyTip._id]); }, function (error) { return (_this.errorMessage = error); });
                 };
                 CreateComponent.prototype.ngOnInit = function () {
-                    //      this._dailyTipsService.getPatients().subscribe(
-                    //	patients => (this.patients = patients),
-                    //	error => (this.errorMessage = error)
-                    //);;
-                    //console.log(this.patients);
                 };
                 CreateComponent = __decorate([
                     core_1.Component({

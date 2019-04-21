@@ -47,7 +47,6 @@ System.register(["@angular/core", "../dailyinformations.service", '../../authent
                                     _this.dailyinformations = null;
                                 }
                             }
-                            console.log(_this.dailyinformations);
                         }
                         else {
                             _this.dailyinformations = null;

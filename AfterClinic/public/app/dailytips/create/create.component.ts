@@ -31,11 +31,7 @@ export class CreateComponent implements OnInit{
     }
 
 	ngOnInit() {
-  //      this._dailyTipsService.getPatients().subscribe(
-		//	patients => (this.patients = patients),
-		//	error => (this.errorMessage = error)
-		//);;
-		//console.log(this.patients);
+ 
     }
 
 }

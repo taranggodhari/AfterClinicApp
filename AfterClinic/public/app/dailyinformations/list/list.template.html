@@ -19,7 +19,7 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let dailyInformation of dailyinformations" class="table-light">
-						<th scope="row"><a [routerLink]="['/dailyinformations', dailyInformation._id]">{{dailyInformation.information}}</a></th>
+						<th scope="row">{{dailyInformation.information}}</th>
 						<td>{{dailyInformation.created | date:'MM/dd/yyyy HH:mm:ss'}}</td>
 					</tr>
 				</tbody>
@@ -38,7 +38,7 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let dailyInformation of dailyinformations" class="table-light">
-						<th scope="row"> <a [routerLink]="['/dailyinformations', dailyInformation._id]"> {{dailyInformation.creator.fullName}}</a></th>
+						<th scope="row"> {{dailyInformation.creator.fullName}} </th>
 						<td >{{dailyInformation.information}}</td>
 						<td>{{dailyInformation.created | date:'MM/dd/yyyy HH:mm:ss'}}</td>
 					</tr>

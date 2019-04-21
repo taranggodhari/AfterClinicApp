@@ -17,7 +17,7 @@ export class VitalSignsService {
 
 	read(vitalsignId: string): Observable<any> {
 		return this._http
-			.get(`${this._baseURL}/${vitalsignId}`)
+            .post(`${this._baseURL}/${vitalsignId}`, null)
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

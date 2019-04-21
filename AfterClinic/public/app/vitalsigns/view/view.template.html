@@ -1,29 +1,29 @@
-﻿<div class="wrapper ">
-	<div id="formContent">
-		<section *ngIf="vitalsign && vitalsign.nurse">
-			<div class="card text-center">
-				<div class="card-header">
-					<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Vital Sign Detail</h1>
-				</div>
-				<div class="card-body">
-					<h4 class="card-title">{{vitalsign.bodyTemperature}}</h4>
-					<p class="card-text"><b>Heart Rate: </b>{{vitalsign.heartRate}}</p>
-					<p class="card-text"><b>Blood Pressure: </b>{{vitalsign.bloodPressure}}</p>
-					<p class="card-text"><b>Respiratory Rate: </b>{{vitalsign.respiratoryRate}}</p>
-					<p class="card-text"><b>Patient: </b>{{vitalsign.patient.fullName}}</p>
-					<div *ngIf="allowEdit">
-						<a class="btn btn-primary" [routerLink]="['/vitalsigns', vitalsign._id, 'edit']">EDIT</a>
-						<button class="btn btn-danger" (click)="delete()">DELETE</button>
-					</div>
-				</div>
-				<div class="card-footer text-muted">
-					Posted on {{vitalsign.created | date:'MM/dd/yyyy'}} by {{vitalsign.nurse.fullName}}
-				</div>
-			</div>
-		</section>
-		<div class="card-footer">
-			<a [routerLink]="['/vitalsigns']" style="font-size:larger"> &laquo; All VitalSigns</a>
-		</div>
-	</div>
+﻿<div class="row justify-content-center">
+    <div id="col-md-10">
+        <section *ngIf="vitalsign && vitalsign.nurse">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Vital Sign Detail</h1>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title"><b>Patient: </b>{{vitalsign.patient.fullName}}</h4>
+                    <p class="card-text"><b>Body Temperature: </b>{{vitalsign.bodyTemperature}} °C</p>
+                    <p class="card-text"><b>Heart Rate: </b>{{vitalsign.heartRate}} bpm</p>
+                    <p class="card-text"><b>Blood Pressure: </b>{{vitalsign.bloodPressure}} mm Hg</p>
+                    <p class="card-text"><b>Respiratory Rate: </b>{{vitalsign.respiratoryRate}} breaths per minute</p>
+                    <div *ngIf="allowEdit">
+                        <a class="btn btn-primary" [routerLink]="['/vitalsigns', vitalsign._id, 'edit']">EDIT</a>
+                        <button class="btn btn-danger" (click)="delete()">DELETE</button>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    Posted on {{vitalsign.created | date:'MM/dd/yyyy'}} by {{vitalsign.nurse.fullName}}
+                </div>
+            </div>
+        </section>
+        <div class="card-footer">
+            <a [routerLink]="['/vitalsigns']" style="font-size:larger"> &laquo; All VitalSigns</a>
+        </div>
+    </div>
 </div>
 

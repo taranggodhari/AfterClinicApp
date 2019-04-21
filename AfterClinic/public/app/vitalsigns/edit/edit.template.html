@@ -1,29 +1,47 @@
-﻿<div class="wrapper ">
-	<div id="formContent">
-		<div class="first">
-			<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Edit Vital Sign</h1>
-		</div>
-		<br />
-		<form (ngSubmit)="update()" novalidate>
-			<div class="input-group mb-3 ">
-				<input type="text" required disabled [(ngModel)]="vitalsign.bodyTemperature" name="bodyTemperature" placeholder="Body Temperature" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required disabled [(ngModel)]="vitalsign.heartRate" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.bloodPressure" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<div class="input-group mb-3 ">
-				<input type="text" required [(ngModel)]="vitalsign.respiratoryRate" name="heartRate" placeholder="Heart Rate" class="form-control">
-			</div>
-			<div style="text-align: center;">
-				<input type="submit" class="btn btn-primary" value="Update Vital Sign" />
-			</div>
-			<span style="color:red;"><b>{{errorMessage}}</b></span>
-		</form>
-		<hr />
-		<a class="btn btn-light" [routerLink]="['/vitalsigns']"> List all Vital Signs</a>
-		<br />
-	</div>
+﻿<div class="row justify-content-center">
+    <div id="col-md-10">
+        <div class="first">
+            <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Edit Vital Sign</h1>
+        </div>
+        <br />
+        <form (ngSubmit)="update()" novalidate>
+            <!--<div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Patient </span>
+                </div>
+                <input class="form-control" [(ngModel)]="vitalsign.patient" name="patient" placeholder=" {{vitalsign.patient.fullName}} - [{{vitalsign.patient.username}}]" disabled>
+            </div>-->
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.bodyTemperature" name="bodyTemperature" value="{{vitalsign.bodyTemperature}}" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">°C</span>
+                </div>
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.heartRate" name="heartRate" placeholder="Heart Rate" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">mm Hg</span>
+                </div>
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.bloodPressure" name="bloodPressure" placeholder="Blood Pressure" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">bpm</span>
+                </div>
+            </div>
+            <div class="input-group mb-3 ">
+                <input type="text" required [(ngModel)]="vitalsign.respiratoryRate" name="respiratoryRate" placeholder="Respiratory Rate" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">breaths per minute</span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-warning" value="Update Vital Sign" />
+            </div>
+            <span style="color:red;"><b>{{errorMessage}}</b></span>
+        </form>
+        <hr />
+        <a class="btn btn-light" [routerLink]="['/vitalsigns']"> List all Vital Signs</a>
+        <br />
+    </div>
 </div>

@@ -18,7 +18,7 @@ export class DailyTipsService {
 
     read(dailytipId: string): Observable<any> {
 		return this._http
-            .get(`${this._baseURL}/${dailytipId}`)
+            .post(`${this._baseURL}/${dailytipId}`,null)
 			.map((res: Response) => res.json())
 			.catch(this.handleError);
 	}

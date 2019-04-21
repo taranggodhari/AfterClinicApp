@@ -39,7 +39,7 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
                 };
                 DailyTipsService.prototype.read = function (dailytipId) {
                     return this._http
-                        .get(this._baseURL + "/" + dailytipId)
+                        .post(this._baseURL + "/" + dailytipId, null)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

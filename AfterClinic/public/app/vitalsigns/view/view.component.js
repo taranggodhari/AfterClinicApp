@@ -39,7 +39,8 @@ System.register(["@angular/core", "@angular/router", "../../authentication/authe
                 //
                 ViewComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.user = this._authenticationService.user;
+                    console.log("Here");
+                    this.user = this._authenticationService.getLoggedInUser();
                     this.paramsObserver = this._route.params.subscribe(function (params) {
                         var vitalsignId = params["vitalsignId"];
                         _this._vitalSignsService.read(vitalsignId).subscribe(function (vitalsign) {

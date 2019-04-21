@@ -6,12 +6,12 @@
         <br />
         <form (ngSubmit)="create()" novalidate>
             <div class="input-group mb-3 ">
-                <textarea type="text" required [(ngModel)]="dailyinformation.information" name="information" placeholder="Enter Your daily information. ex. Heart Rate, Blood Pressure, etc." class="form-control"></textarea>
+                <textarea rows="10" type="text" required [(ngModel)]="dailyinformation.information" name="information" placeholder="Enter Your daily information. ex. Heart Rate, Blood Pressure, etc." class="form-control"></textarea>
             </div>
             <div style="text-align: center;">
                 <input type="submit" class="btn btn-success" value="Submit" />
             </div>
-			<h5>*All the Nurses will be able to see your daily information.</h5>
+			<small style="text-align: center;">*All the Nurses will be able to see your daily information.</small>
             <span style="color:red;"><b>{{errorMessage}}</b></span>
         </form>
         <hr />

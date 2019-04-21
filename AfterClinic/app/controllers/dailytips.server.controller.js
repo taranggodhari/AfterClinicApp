@@ -2,90 +2,97 @@
 const DailyTips = mongoose.model('DailyTips');
 //
 function getErrorMessage(err) {
-	if (err.errors) {
-		for (let errName in err.errors) {
-			if (err.errors[errName].message) return err.errors[errName].
-				message;
-		}
-	} else {
-		return 'Unknown server error';
-	}
+    if (err.errors) {
+        for (let errName in err.errors) {
+            if (err.errors[errName].message) return err.errors[errName].
+                message;
+        }
+    } else {
+        return 'Unknown server error';
+    }
 }
 //
 exports.create = function (req, res) {
-	const dailytip = new DailyTips(req.body);
-	dailytip.nurse = req.body.nurse;
-	dailytip.save((err) => {
-		if (err) {
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		} else {
-			res.status(200).json(dailytip);
-		}
-	});
+    const dailytip = new DailyTips(req.body);
+    dailytip.nurse = req.body.nurse;
+    dailytip.save((err) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(dailytip);
+        }
+    });
 };
 //
 exports.list = function (req, res) {
-	DailyTips.find().sort('-created').populate('nurse', 'firstName lastName fullName').exec((err, dailytips) => {
-		if (err) {
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		} else {
-			res.status(200).json(dailytips);
-		}
-	});
+    DailyTips.find().sort('-created').populate('nurse', 'firstName lastName fullName role').exec((err, dailytips) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(dailytips);
+        }
+    });
 };
 //
 exports.getDailyTipsById = function (req, res, next, id) {
-	DailyTips.findById(id).populate('nurse', 'firstName lastName fullName').exec((err, dailytip) => {
-		if (err) return next(err);
-		if (!dailytip) return next(new Error('Failed to load Daily Tips ' + id));
-		req.dailytip = dailytip;
-		next();
-	});
+    DailyTips.findById(id).populate('nurse', 'firstName lastName fullName').exec((err, dailytip) => {
+        if (err) return next(err);
+        if (!dailytip) return next(new Error('Failed to load Daily Tips ' + id));
+        req.dailytip = dailytip;
+        next();
+    });
 };
 //
 exports.read = function (req, res) {
-	res.status(200).json(req.dailytip);
+    res.status(200).json(req.dailytip);
 };
 //
 exports.update = function (req, res) {
-	const dailytip = req.dailytip;
-	dailytip.save((err) => {
-		if (err) {
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		} else {
-			res.status(200).json(dailytip);
-		}
-	});
+    const dailytip = req.body;
+
+    const id = dailytip._id;
+    const tip = { 'tip': dailytip.tip };
+    const options = { 'new': true };
+
+    DailyTips.findByIdAndUpdate(id, tip, options, (err, updatedTip) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(updatedTip);
+        }
+    });
 };
 //
 exports.delete = function (req, res) {
-	const dailytip = req.dailytip;
-	dailytip.remove((err) => {
-		if (err) {
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		} else {
-			res.status(200).json(dailytip);
-		}
-	});
+    const dailytip = req.dailytip;
+    dailytip.remove((err) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(dailytip);
+        }
+    });
 };
 //The hasAuthorization() middleware uses the req.dailytips and req.user objects
 //to verify that the current user is the nurse of the current dailytips
 exports.hasAuthorization = function (req, res, next) {
-    req.dailytip = req.body;
-	if (req.dailytip.nurse.id !== req.user.id && req.dailytip.nurse.role !== "NURSE") {
-		return res.status(403).send({
-			message: 'User is not authorized'
-		});
-	}
-	next();
+    if (Object.keys(req.body).length !== 0) {
+        req.dailytip = req.body;
+    }
+    if (req.dailytip.nurse.id !== req.user.id && req.dailytip.nurse.role !== "NURSE") {
+        return res.status(403).send({
+            message: 'User is not authorized'
+        });
+    }
+    next();
 };
 
 

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../dailytips.service"], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../dailytips.service", "../../authentication/authentication.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router", "../dailytips.service"], fu
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, dailytips_service_1;
+    var core_1, router_1, dailytips_service_1, authentication_service_1;
     var EditComponent;
     return {
         setters:[
@@ -22,14 +22,19 @@ System.register(["@angular/core", "@angular/router", "../dailytips.service"], fu
             },
             function (dailytips_service_1_1) {
                 dailytips_service_1 = dailytips_service_1_1;
+            },
+            function (authentication_service_1_1) {
+                authentication_service_1 = authentication_service_1_1;
             }],
         execute: function() {
             EditComponent = (function () {
-                function EditComponent(_router, _route, _dailyTipsService) {
+                function EditComponent(_router, _route, _dailyTipsService, _authenticationService) {
                     this._router = _router;
                     this._route = _route;
                     this._dailyTipsService = _dailyTipsService;
+                    this._authenticationService = _authenticationService;
                     this.dailytip = {};
+                    this.user = _authenticationService.getLoggedInUser();
                 }
                 EditComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -45,6 +50,7 @@ System.register(["@angular/core", "@angular/router", "../dailytips.service"], fu
                 };
                 EditComponent.prototype.update = function () {
                     var _this = this;
+                    this.dailytip.nurse = this.user;
                     this._dailyTipsService
                         .update(this.dailytip)
                         .subscribe(function (savedDailyTip) { return _this._router.navigate(["/dailytips", savedDailyTip._id]); }, function (error) { return (_this.errorMessage = error); });
@@ -54,7 +60,7 @@ System.register(["@angular/core", "@angular/router", "../dailytips.service"], fu
                         selector: "edit",
                         templateUrl: "app/dailytips/edit/edit.template.html"
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, dailytips_service_1.DailyTipsService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, dailytips_service_1.DailyTipsService, authentication_service_1.AuthenticationService])
                 ], EditComponent);
                 return EditComponent;
             }());

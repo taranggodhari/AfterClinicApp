@@ -9,7 +9,7 @@ module.exports = function (app) {
 	app.route('/api/dailytips').post(users.requiresLogin, dailytips.hasAuthorization, dailytips.create);
 
 	//GET CurrentDailyTip By Id
-	app.route('/api/dailytips/:dailytipId').get(dailytips.read);
+	app.route('/api/dailytips/:dailytipId').post(dailytips.read);
 
 	//UPDATE DailyTips
 	app.route('/api/dailytips/:dailytipId').put(users.requiresLogin, dailytips.hasAuthorization, dailytips.update);

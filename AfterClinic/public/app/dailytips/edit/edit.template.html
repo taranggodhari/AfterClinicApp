@@ -1,13 +1,14 @@
-﻿<div class="wrapper ">
-	<div id="formContent">
-		<div class="first">
-			<h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Edit Vital Sign</h1>
-		</div>
-		<br />
+﻿<div class="row justify-content-center">
+    <div id="col-md-10">
+        <div class="first">
+            <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">Edit Motivational tips</h1>
+        </div>
+        <br />
         <form (ngSubmit)="update()" novalidate>
             <div class="input-group mb-3 ">
-                <label for="tip">Write a motivational Tip </label>
-                <textarea class="form-control" [(ngModel)]="dailytip.tip" id="tip" name="tip" required rows="5"></textarea>
+                <textarea class="form-control" [(ngModel)]="dailytip.tip" id="tip" name="tip" required rows="5">
+                   {{dailytip.tip}} 
+                </textarea>
             </div>
 
             <div class="input-group mb-3 ">
@@ -17,12 +18,45 @@
             </div>
 
             <div style="text-align: center;">
-                <input type="submit" class="btn btn-primary" value="Update Vital Sign" />
+                <input type="submit" class="btn btn-warning" value="Update Vital Sign" />
             </div>
             <span style="color:red;"><b>{{errorMessage}}</b></span>
         </form>
-		<hr />
-		<a class="btn btn-light" [routerLink]="['/dailytips']"> List all Vital Signs</a>
-		<br />
-	</div>
+    </div>
 </div>
+
+
+
+
+
+<!--<div class="row justify-content-center">
+    <div id="col-md-10">
+        <div class="first">
+            <h1 style="text-transform: uppercase; text-align: center; font-family: monospace; font-weight:bold; padding-top:10px;">New Vital Sign</h1>
+        </div>
+        <br />
+        <form (ngSubmit)="create()" novalidate>
+
+            <div class="input-group mb-3 ">
+                <label for="tip">Write a motivational Tip </label>
+            </div>
+            <div class="input-group mb-3 ">
+                <textarea class="form-control" [(ngModel)]="dailytip.tip" id="tip" name="tip" required rows="5"></textarea>
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> - written by Nurse {{user.fullName}} - [{{user.username}}] </span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-success" value="Create Motivational Tip" />
+            </div>
+            <span style="color:red;"><b>{{errorMessage}}</b></span>
+        </form>
+        <hr />
+        <div style="text-align: center;">
+            <a class="btn btn-primary" [routerLink]="['/dailytips']"> List all Motivational Tips</a>
+        </div>
+    </div>
+</div>-->

@@ -55,7 +55,10 @@ exports.list = function (req, res) {
 };
 //
 exports.getVitalSignsById = function (req, res, next, id) {
-	VitalSigns.findById(id).populate('nurse', 'firstName lastName fullName').exec((err, vitalsign) => {
+    VitalSigns.findById(id)
+        .populate('nurse')
+        .populate('patient')
+        .exec((err, vitalsign) => {
 		if (err) return next(err);
 		if (!vitalsign) return next(new Error('Failed to load Vital Sign ' + id));
 		req.vitalsign = vitalsign;
@@ -68,19 +71,26 @@ exports.read = function (req, res) {
 };
 //
 exports.update = function (req, res) {
-	const vitalsign = req.vitalsign;
-	vitalsign.save((err) => {
-		if (err) {
-			return res.status(400).send({
-				message: getErrorMessage(err)
-			});
-		} else {
-			res.status(200).json(vitalsign);
-		}
-	});
+    const vitalsign = req.body;
+
+    const id = vitalsign._id;
+    const vitalsigns = { 'bodyTemperature': vitalsign.bodyTemperature, 'heartRate': vitalsign.heartRate, 'bloodPressure': vitalsign.bloodPressure, 'respiratoryRate': vitalsign.respiratoryRate };
+    const options = { 'new': true };
+
+    VitalSigns.findByIdAndUpdate(id, vitalsigns, options, (err, updatedVitalSign) => {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json(updatedVitalSign);
+        }
+    });
+
 };
 //
 exports.delete = function (req, res) {
+
 	const vitalsign = req.vitalsign;
 	vitalsign.remove((err) => {
 		if (err) {
@@ -95,7 +105,9 @@ exports.delete = function (req, res) {
 //The hasAuthorization() middleware uses the req.vitalsigns and req.user objects
 //to verify that the current user is the nurse of the current vitalsigns
 exports.hasAuthorization = function (req, res, next) {
-    req.vitalsign = req.body;
+    if (Object.keys(req.body).length !== 0) {
+        req.vitalsign = req.body;
+    }
 	if (req.vitalsign.nurse.id !== req.user.id && req.vitalsign.nurse.role !== "NURSE") {
 		return res.status(403).send({
 			message: 'User is not authorized'
