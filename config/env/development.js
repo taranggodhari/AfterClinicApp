@@ -1,6 +1,6 @@
 ﻿// Set the 'development' environment configuration object
 module.exports = {
-	db: MONGODB_URI,
+	db: process.env.MONGODB_URI,
     sessionSecret: 'developmentSessionSecret',
     facebook: {
         clientID: 'Facebook Application ID',
