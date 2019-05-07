@@ -1,6 +1,6 @@
 ﻿// Set the 'development' environment configuration object
 module.exports = {
-    db: 'mongodb://localhost/after-clinic-development',
+	db: 'mongodb+srv://taranggodhari:JJ32Ug4nBH2zSSdj@cluster0-w8ljs.mongodb.net/AfterClinic?retryWrites=true',
     sessionSecret: 'developmentSessionSecret',
     facebook: {
         clientID: 'Facebook Application ID',
