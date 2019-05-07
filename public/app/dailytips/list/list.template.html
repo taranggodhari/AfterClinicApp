@@ -3,7 +3,7 @@
         <div class="first">
             <h1 style="text-transform: uppercase; font-family: monospace; font-weight:bold; padding-top:10px;">Motivational Tips</h1>
         </div>
-        <div *ngIf="!dailytips">
+        <div *ngIf="!dailytips && user.role == 'NURSE'>
             No Motivational Tips yet, why don't you <a [routerLink]="['/dailytips/create']">create one</a>?
         </div>
 
