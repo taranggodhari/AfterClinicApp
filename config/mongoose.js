@@ -5,14 +5,8 @@ const mongoose = require('mongoose');
 
 // Define the Mongoose configuration method
 module.exports = function () {
-	mongoose.Promise =global.Promise;
     // Use Mongoose to connect to MongoDB
-    const db = mongoose.connect(config.db, {
-		useMongoClient: true,
-		  socketTimeoutMS: 0,
-		  keepAlive: true,
-		  reconnectTries: 30
-		});
+    const db = mongoose.connect(config.db);
 
 	
     // Load models 

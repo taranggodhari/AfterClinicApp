@@ -1,6 +1,6 @@
 ﻿// Set the 'development' environment configuration object
 module.exports = {
-	db: process.env.MONGODB_URI,
+	db: 'mongodb://localhost/AfterClinic',
     sessionSecret: 'developmentSessionSecret',
     facebook: {
         clientID: 'Facebook Application ID',
