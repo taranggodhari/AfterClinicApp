@@ -1,6 +1,6 @@
 ﻿// Set the 'production' environment configuration object
 module.exports = {
-	db: MONGOLAB_URI,
+	db: MONGODB_URI,
     sessionSecret: 'productionSessionSecret',
     facebook: {
         clientID: 'Facebook Application ID',
